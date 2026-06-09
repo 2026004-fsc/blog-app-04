@@ -7,23 +7,27 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+  <!-- header サイト名・検索バー・投稿画面遷移ボタン -->
   <div class="header">
-    <div>ARILOG</div>
-    <a href="/blog-post"><div>投稿</div></a>
+    <div class="flex-item" id="title">ARILOG</div>
+    <div class="flex-item">検索バーいれたい</div>
+    <div class="flex-item"><a href="/blog-post">投稿</a></div>
   </div>
 
   <div class="container">
 
     <div class="menu-div">
       <ul class="menu-ul">
-        <li><a href="/blog">ホーム</a></li>
-        <li><a href="/blog-follow">フォロー中の投稿</a></li>
+        <li><a href="/blogs">ホーム</a></li>
+        <!-- <li><a href="/blog-follow">フォロー中の投稿</a></li> -->
         <li><a href="/blog-post">投稿する</a></li>
       </ul>
     </div>
     
-    <div class="main-div">
-      <p class="sub-title" th:text="${}"></p>
+    <div class="post-div">
+      <div class="view-user-name" th:text="${blog.user_name}"></div>
+      <p class="view-title" th:text="${blog.title}"></p>
+      <p class="view-post" th:text="${blog.post}"></p>
     </div>
 
   </div>

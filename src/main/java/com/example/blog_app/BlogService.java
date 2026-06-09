@@ -15,4 +15,16 @@ public class BlogService {
   public List<Blog> findNewBlogs(){
     return blogRepository.findNewBlogs();
   }
+
+  // public List<User> findUser(){
+  //   return blogRepository.findUser();
+  // }
+
+  public Blog getBlogById(Long id){
+    return blogRepository.getBlogById(id);
+  }
+
+  public void save(BlogForm form){
+    blogRepository.save(form);
+  }
 }

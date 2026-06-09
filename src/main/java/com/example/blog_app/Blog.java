@@ -4,14 +4,18 @@ import java.sql.Timestamp;
 
 public class Blog {
   private Long id;
+  private String user_name;
   private String title;
   private String post;
   private String image_path;
   private Timestamp posted_at;
-  private Long user_id;
 
   public Long getId() {
     return id;
+  }
+
+  public String getUser_name() {
+    return user_name;
   }
 
   public String getTitle() {
@@ -30,7 +34,4 @@ public class Blog {
     return posted_at;
   }
 
-  public Long getUser_id() {
-    return user_id;
-  }
 }

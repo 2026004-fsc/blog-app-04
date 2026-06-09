@@ -6,12 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ARILOG</title>
   <link rel="stylesheet" href="/css/style.css">
+  
 </head>
 
 <body>
   <!-- header サイト名・検索バー・投稿画面遷移ボタン -->
   <div class="header">
-    <div class="flex-item">ARILOG</div>
+    <div class="flex-item" id="title">ARILOG</div>
     <div class="flex-item">検索バーいれたい</div>
     <div class="flex-item"><a href="/blog-post">投稿</a></div>
   </div>
@@ -20,8 +21,8 @@
 
     <div class="menu-div">
       <ul class="menu-ul">
-        <li><a href="/blog">ホーム</a></li>
-        <li><a href="/blog-follow">フォロー中の投稿</a></li>
+        <li><a href="/blogs">ホーム</a></li>
+        <!-- <li><a href="/blog-follow">フォロー中の投稿</a></li> -->
         <li><a href="/blog-post">投稿する</a></li>
       </ul>
     </div>
@@ -33,23 +34,23 @@
         <div class="content-scroll">
           <p th:if="${#lists.isEmpty(newBlogs)}">タスクがありません</p>
           <nav th:each="blog : ${newBlogs}">
-            <form th:action="@{/blog/{id}/view(id=${blog.id})}" method="post">
-              <div class="blog-window">
+            <div class="blog-window">
+              <a th:href="@{/blog/{id}/view(id=${blog.id})}" class="blog-window-link">
                 <div><img th:src="${blog.image_path}" alt="ブログ画像" class="blog-image"></div>
-                <div><span th:text="${blog.title}">ブログタイトル</span></div>
-              </div>
-            </form>
+                <div><span th:text="${blog.title}" class="blog-title">ブログタイトル</span></div>
+              </a>
+            </div>
           </nav>
         </div>
       
       </div>
 
-      <div class="show-blog-container">
+      <!-- <div class="show-blog-container">
         <p id="sub-title">フォロー中</p>
         <div class="content-scroll">
 
         </div>
-      </div>
+      </div> -->
 
     </div>
 
