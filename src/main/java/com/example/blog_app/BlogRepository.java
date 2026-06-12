@@ -3,7 +3,6 @@ package com.example.blog_app;
 import java.util.List;
 
 import org.springframework.jdbc.core.simple.JdbcClient;
-import org.springframework.scheduling.config.Task;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -21,11 +20,6 @@ public class BlogRepository {
         .list();
   }
 
-  // public List<User> findUser(){
-  // return jdbcClient.sql("SELECT id, user_name, user_address FROM users")
-  // .query(User.class)
-  // .list();
-  // }
 
   public Blog getBlogById(Long id) {
     return jdbcClient.sql("SELECT * FROM blogs WHERE id = :id")

@@ -11,9 +11,9 @@
 <body>
   <!-- header サイト名・検索バー・投稿画面遷移ボタン -->
   <div class="header">
-    <div class="flex-item" id="title">ARILOG</div>
-    <div class="flex-item">検索バーいれたい</div>
-    <div class="flex-item"><a href="/blog-post">投稿</a></div>
+    <div class="flex-item"><a href="/blogs" id="title">ARILOG</a></div>
+    <!-- <div class="flex-item">検索バーいれたい</div> -->
+    <a href="/blog-post" class="post-button"><div>投稿</div></a>
   </div>
 
   <div class="container">
@@ -26,19 +26,25 @@
       </ul>
     </div>
 
-    <div class="main-div">
+    <div class="post-div">
       <form action="/blogs" method="post">
         <div>
           <p>
-            <label for="name" id="post-label">名前</label><br>
+            <div class="post-label">
+              <label for="name">名前</label><br>
+            </div>
             <input type="text" id="user_name" name="user_name"><br>
           </p>
           <p>
-            <label for="title" id="post-label">タイトル</label><br>
-            <input type="text" id="title" name="title" width="200px"><br>
+            <div class="post-label">
+              <label for="title">タイトル</label><br>
+            </div>
+            <input type="text" id="post-title" name="title" size="100"><br>
           </p>
           <p>
-            <label for="post" id="post-label">ブログ本文</label><br>
+            <div class="post-label">
+              <label for="post">ブログ本文</label><br>
+            </div>
             <textarea rows="20" cols="130" placeholder="本文を入力" id="post" name="post"></textarea><br>
           </p>
           <button type="submit" class="post-submit">投稿する</button>
