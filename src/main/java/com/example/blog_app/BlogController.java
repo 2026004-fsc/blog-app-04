@@ -19,28 +19,30 @@ public class BlogController {
 
   @GetMapping("/blogs")
   public String blogs(Model model) {
+    //新規投稿順に並び替えられたすべてのブログを取得し、リストに格納
     List<Blog> newBlogs = blogService.findNewBlogs();
-
     model.addAttribute("newBlogs", newBlogs);
     
       return "blog";
   }
 
+  //ブログのカードがクリックされたら、ビューページに遷移
   @GetMapping("/blog/{id}/view")
   public String blogView(@PathVariable Long id, Model model) {
     Blog blog = blogService.getBlogById(id);
-    
     model.addAttribute("id", id);
     model.addAttribute("blog", blog);
       
       return "blog-view";
   }
   
+  //投稿ページに遷移
   @GetMapping("/blog-post")
   public String blogPost(Model model){
       return "blog-post";
   }
 
+  //ブログを投稿した際の処理と、メインのblog画面に遷移する処理
   @PostMapping("/blogs")
   public String blogSave(@ModelAttribute BlogForm form, Model model) {
     blogService.save(form);

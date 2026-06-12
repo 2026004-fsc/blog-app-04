@@ -20,7 +20,7 @@ public class BlogRepository {
         .list();
   }
 
-
+  //クリックされたブログのデータ（1レコード）を返す
   public Blog getBlogById(Long id) {
     return jdbcClient.sql("SELECT * FROM blogs WHERE id = :id")
         .param("id", id)
@@ -28,6 +28,7 @@ public class BlogRepository {
         .single();
   }
 
+  //ユーザーが入力した名前、タイトル、本文をDBに追加
   public void save(BlogForm form) {
     jdbcClient.sql("INSERT INTO blogs (user_name, title, post) VALUES (:user_name, :title, :post)")
         .param("user_name", form.getUser_name())

@@ -12,18 +12,18 @@ public class BlogService {
     this.blogRepository = blogRepository;
   }
 
+  //新規投稿順に並び替えられたすべてのブログのリストを取得する
+  //repositoryのメソッドを実行
   public List<Blog> findNewBlogs(){
     return blogRepository.findNewBlogs();
   }
 
-  // public List<User> findUser(){
-  //   return blogRepository.findUser();
-  // }
-
+  //クリックされたブログのデータを取得するrepositoryのメソッドを実行
   public Blog getBlogById(Long id){
     return blogRepository.getBlogById(id);
   }
 
+  //投稿する内容をDBに追加するrepositoryのメソッドを実行
   public void save(BlogForm form){
     blogRepository.save(form);
   }
